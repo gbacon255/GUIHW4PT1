@@ -1,3 +1,9 @@
+/*
+File: init.js
+GUI Assignment: #4, Adding a multiplication table to a website
+Garrett Bacon, UMass Lowell Computer Science, Garrett_Bacon@student.uml.edu
+This file validates the user input and sends it to my table generation function
+*/
 $(document).ready(function(){
     
     $("#errorTStart").hide();
