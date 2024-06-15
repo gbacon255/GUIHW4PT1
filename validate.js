@@ -23,19 +23,22 @@ $(document).ready(function(){
     });
 });
 
-function validate(){
+//moved validation to its own function to clean up code, checks for four valid inputs before generating
+function validate(currentTab){
     var validNum = 0;
-    if($("#topStart").val() < -75){
+    console.log($("#topStart").val());
+    if(parseInt($("#topStart").val()) < -75){
+        console.log("reached");
         $("#errorTStart").hide();
         $("#HighTStart").hide();
         $("#LowTStart").show();
     }
-    if($("#topStart").val() > 75){
+    else if($("#topStart").val() > 75){
         $("#LowTStart").hide();
         $("#errorTStart").hide();
         $("#HighTStart").show();
     }
-    if($("#topStart").val() ==""){
+    else if($("#topStart").val() ==""){
         $("#LowTStart").hide();
         $("#HighTStart").hide();
         $("#errorTStart").show();
@@ -52,12 +55,12 @@ function validate(){
         $("#HighTEnd").hide();
         $("#LowTEnd").show();
     }
-    if($("#topEnd").val() > 75){
+    else if($("#topEnd").val() > 75){
         $("#LowTEnd").hide();
         $("#errorTEnd").hide();
         $("#HighTEnd").show();
     }
-    if($("#topEnd").val() ==""){
+    else if($("#topEnd").val() ==""){
         $("#HighTEnd").hide();
         $("#LowTEnd").hide();
         $("#errorTEnd").show();
@@ -74,12 +77,12 @@ function validate(){
         $("#HighSStart").hide();
         $("#LowSStart").show();
     }
-    if($("#sideStart").val() > 75){
+    else if($("#sideStart").val() > 75){
         $("#LowSStart").hide();
         $("#errorSStart").hide();
         $("#HighSStart").show();
     }
-    if($("#sideStart").val() ==""){
+    else if($("#sideStart").val() ==""){
         $("#HighSStart").hide();
         $("#LowSStart").hide();
         $("#errorSStart").show();
@@ -97,12 +100,12 @@ function validate(){
         $("#HighSEnd").hide();
         $("#LowSEnd").show();
     }
-    if($("#sideEnd").val() > 75){
+    else if($("#sideEnd").val() > 75){
         $("#LowSEnd").hide();
         $("#errorSEnd").hide();
         $("#HighSEnd").show();
     }
-    if($("#sideEnd").val() ==""){
+    else if($("#sideEnd").val() ==""){
         $("#HighSEnd").hide();
         $("#LowSEnd").hide();
         $("#errorSEnd").show();
@@ -120,6 +123,6 @@ function validate(){
         const tEnd = $("#topEnd").val();
         const sStart = $("#sideStart").val();
         const sEnd = $("#sideEnd").val();
-        generateTable(tStart,tEnd,sStart,sEnd);
+        generateTable(tStart,tEnd,sStart,sEnd, currentTab);
     }
 }
